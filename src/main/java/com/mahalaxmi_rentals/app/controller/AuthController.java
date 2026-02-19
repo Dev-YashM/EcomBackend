@@ -50,13 +50,13 @@ public class AuthController {
 
         return ResponseEntity.ok(response);
     }
-    @PostMapping("/complete-profile/{mobileNumber}")
-    public ResponseEntity<?> completeProfile(
-            @PathVariable String mobileNumber,
-            @Valid @RequestBody CompleteProfileRequest request) {
+@PostMapping("/complete-profile/{mobileNumber}")
+public ResponseEntity<?> completeProfile(
+        @PathVariable String mobileNumber,
+        @Valid @RequestBody CompleteProfileRequest request) {
 
-        User user = userService.completeProfile(mobileNumber, request);
+    User user = userService.completeProfile(mobileNumber, request);
 
-        return ResponseEntity.ok(user);
-    }
+    return ResponseEntity.ok(user);
+}
 }
