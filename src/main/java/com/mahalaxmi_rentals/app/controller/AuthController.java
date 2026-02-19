@@ -50,19 +50,10 @@ public class AuthController {
 
         return ResponseEntity.ok(response);
     }
-
-//    @PostMapping("/complete-profile")
-//    public ResponseEntity<?> completeProfile(
-//            @Valid @RequestBody CompleteProfileRequest request) {
-//
-//        User user = userService.completeProfile(request);
-//
-//        return ResponseEntity.ok(user);
-//    }
-@PostMapping("/complete-profile/{mobileNumber}")
-public ResponseEntity<?> completeProfile(
-        @PathVariable String mobileNumber,
-        @Valid @RequestBody CompleteProfileRequest request) {
+    @PostMapping("/complete-profile/")
+    public ResponseEntity<?> completeProfile(
+            @PathVariable String mobileNumber,
+            @Valid @RequestBody CompleteProfileRequest request) {
 
     User user = userService.completeProfile(mobileNumber, request);
 
