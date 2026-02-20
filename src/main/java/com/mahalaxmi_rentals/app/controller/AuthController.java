@@ -47,6 +47,7 @@ public class AuthController {
         Map<String, Object> response = new HashMap<>();
         response.put("mobileNumber", user.getMobileNumber());
         response.put("profileComplete", user.isProfileComplete());
+        response.put("profileId", user.getId());
 
         return ResponseEntity.ok(response);
     }

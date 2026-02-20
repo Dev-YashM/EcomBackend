@@ -5,3 +5,6 @@ spring:
 fast2sms:
   api:
     key: 2ZGK1btVqFnIuaj06vcUAYTLdzX8rloRSOw3sEepCgkJ9mPQyMnlOpmx6vihwArNtDuL0s8UBRFzfg4c
+
+server:
+  address: 0.0.0.0

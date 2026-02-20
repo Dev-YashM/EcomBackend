@@ -66,4 +66,8 @@ public User completeProfile(String mobileNumber, CompleteProfileRequest request)
     return userRepository.save(user);
 }
 
+    public User getUserByProfileId(String mobileNumber) {
+        return userRepository.findByMobileNumber(mobileNumber).orElse(null);
+    }
+
 }
