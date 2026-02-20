@@ -1,6 +1,7 @@
 package com.mahalaxmi_rentals.app.controller;
 
 import com.mahalaxmi_rentals.app.model.dto.CompleteProfileRequest;
+import com.mahalaxmi_rentals.app.model.dto.LoginRequest;
 import com.mahalaxmi_rentals.app.model.dto.SendOtpRequest;
 import com.mahalaxmi_rentals.app.model.dto.VerifyOtpRequest;
 import com.mahalaxmi_rentals.app.model.entity.User;
@@ -25,9 +26,14 @@ public class AuthController {
     @PostMapping("/send-otp")
     public ResponseEntity<?> sendOtp(@RequestBody SendOtpRequest request) {
 
-        otpService.sendOtp(request.getMobileNumber());
+        String profileExists= String.valueOf(userService.findUser(request.getMobileNumber()));
 
-        return ResponseEntity.ok("OTP sent successfully");
+        if(profileExists == null) {
+            otpService.sendOtp(request.getMobileNumber());
+            return ResponseEntity.ok("OTP sent successfully");
+        }
+
+        return ResponseEntity.badRequest().body("User Already Exists");
     }
 
     @PostMapping("/verify-otp")
@@ -47,17 +53,25 @@ public class AuthController {
         Map<String, Object> response = new HashMap<>();
         response.put("mobileNumber", user.getMobileNumber());
         response.put("profileComplete", user.isProfileComplete());
-        response.put("profileId", user.getId());
 
         return ResponseEntity.ok(response);
     }
-@PostMapping("/complete-profile/{mobileNumber}")
-public ResponseEntity<?> completeProfile(
-        @PathVariable String mobileNumber,
-        @Valid @RequestBody CompleteProfileRequest request) {
 
-    User user = userService.completeProfile(mobileNumber, request);
+    @PostMapping("/complete-profile/{mobileNumber}")
+    public ResponseEntity<?> completeProfile(
+            @PathVariable String mobileNumber,
+            @Valid @RequestBody CompleteProfileRequest request) {
 
-    return ResponseEntity.ok(user);
-}
+        User user = userService.completeProfile(mobileNumber, request);
+
+        return ResponseEntity.ok(user);
+    }
+
+    @PostMapping("/verify-pin")
+    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
+
+        User user = userService.verifyPin(request.getMobileNumber(), request.getPin());
+
+        return ResponseEntity.ok(user);
+    }
 }

@@ -18,6 +18,8 @@ public class User {
 
     private String username;
 
+    private String pin;
+
     private Address address;
 
     private boolean profileComplete;

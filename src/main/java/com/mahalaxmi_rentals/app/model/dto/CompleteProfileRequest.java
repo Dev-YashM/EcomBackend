@@ -9,6 +9,9 @@ public class CompleteProfileRequest {
     private String username;
 
     @NotBlank
+    private String pin;
+
+    @NotBlank
     private String plotNo;
 
     @NotBlank

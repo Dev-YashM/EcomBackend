@@ -26,47 +26,44 @@ public class UserService {
                     return userRepository.save(user);
                 });
     }
+    public User completeProfile(String mobileNumber, CompleteProfileRequest request) {
 
-//    public User completeProfile(CompleteProfileRequest request) {
-//
-//        User user = userRepository.findByMobileNumber(request.getMobileNumber())
-//                .orElseThrow(() -> new RuntimeException("User not found"));
-//
-//        Address address = Address.builder()
-//                .plotNo(request.getPlotNo())
-//                .laneArea(request.getLaneArea())
-//                .city(request.getCity())
-//                .state(request.getState())
-//                .pinCode(request.getPinCode())
-//                .build();
-//
-//        user.setUsername(request.getUsername());
-//        user.setAddress(address);
-//        user.setProfileComplete(true);
-//
-//        return userRepository.save(user);
-//    }
-public User completeProfile(String mobileNumber, CompleteProfileRequest request) {
+        User user = userRepository.findByMobileNumber(mobileNumber)
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
-    User user = userRepository.findByMobileNumber(mobileNumber)
-            .orElseThrow(() -> new RuntimeException("User not found"));
+        Address address = Address.builder()
+                .plotNo(request.getPlotNo())
+                .laneArea(request.getLaneArea())
+                .city(request.getCity())
+                .state(request.getState())
+                .pinCode(request.getPinCode())
+                .build();
 
-    Address address = Address.builder()
-            .plotNo(request.getPlotNo())
-            .laneArea(request.getLaneArea())
-            .city(request.getCity())
-            .state(request.getState())
-            .pinCode(request.getPinCode())
-            .build();
+        user.setUsername(request.getUsername());
+        user.setPin(request.getPin());
+        user.setAddress(address);
+        user.setProfileComplete(true);
 
-    user.setUsername(request.getUsername());
-    user.setAddress(address);
-    user.setProfileComplete(true);
-
-    return userRepository.save(user);
-}
+        return userRepository.save(user);
+    }
 
     public User getUserByProfileId(String mobileNumber) {
+        return userRepository.findByMobileNumber(mobileNumber).orElse(null);
+    }
+
+    public User verifyPin(String mobileNumber, String pin) {
+
+        User user = userRepository.findByMobileNumber(mobileNumber)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        if (!user.getPin().equals(pin)) {
+            throw new RuntimeException("Invalid PIN");
+        }
+
+        return user;
+    }
+
+    public User findUser(String mobileNumber) {
         return userRepository.findByMobileNumber(mobileNumber).orElse(null);
     }
 
