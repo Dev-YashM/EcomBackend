@@ -14,20 +14,31 @@ This backend is designed to integrate with a frontend application (Web / Mobile)
 -
 
 ☕ Java
+
 🌱 Spring Boot
+
 🗄️ Spring Data JPA
+
 🔐 Spring Security (if applicable)
+
 🐬 MySQL / Oracle (Update if needed)
-📦 Maven
+
+📦 Gradle
 
 🚀 Features
 -
 ✅ Product Management (Add / Update / Delete / View Products)
+
 ✅ Category Management
+
 ✅ Customer Management
+
 ✅ Order Processing
+
 ✅ REST API Architecture
+
 ✅ Database Integration using JPA/Hibernate
+
 ✅ Exception Handling & Validation
 
 🏛️ Architecture
@@ -61,6 +72,7 @@ EcomBackend
 -
 1️⃣ Clone Repository
 git clone https://github.com/your-username/EcomBackend.git
+
 cd EcomBackend
 
 2️⃣ Configure Database
@@ -68,8 +80,11 @@ cd EcomBackend
 Update application.properties:
 
 spring.datasource.url= '';
+
 spring.datasource.username=root
+
 spring.datasource.password=yourpassword
+
 spring.jpa.hibernate.ddl-auto=update
 
 🔐 Security (If Implemented)
