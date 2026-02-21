@@ -26,14 +26,8 @@ public class AuthController {
     @PostMapping("/send-otp")
     public ResponseEntity<?> sendOtp(@RequestBody SendOtpRequest request) {
 
-        String profileExists= String.valueOf(userService.findUser(request.getMobileNumber()));
-
-        if(profileExists == null) {
             otpService.sendOtp(request.getMobileNumber());
             return ResponseEntity.ok("OTP sent successfully");
-        }
-
-        return ResponseEntity.badRequest().body("User Already Exists");
     }
 
     @PostMapping("/verify-otp")
