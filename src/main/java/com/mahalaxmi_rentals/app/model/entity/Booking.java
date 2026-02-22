@@ -24,5 +24,11 @@ public class Booking {
 
     private LocalDateTime bookedAt = LocalDateTime.now();
 
+    private String razorpayOrderId;
+    private String razorpayPaymentId;
+    private String razorpaySignature;
+
+    private String paymentStatus = "CREATED";
+
     // getters & setters
 }
