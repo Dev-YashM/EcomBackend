@@ -1,10 +1,9 @@
 spring:
   application:
     name: app
-
-fast2sms:
-  api:
-    key: 2ZGK1btVqFnIuaj06vcUAYTLdzX8rloRSOw3sEepCgkJ9mPQyMnlOpmx6vihwArNtDuL0s8UBRFzfg4c
+  data:
+    mongodb:
+      uri: mongodb+srv://yashM05:MLXyash2005@mahalaxmielectricals.mffgdap.mongodb.net/mahalaxmi_rentals?retryWrites=true&w=majority
 
 server:
   port: ${PORT:8080}
@@ -12,4 +11,3 @@ server:
 razorpay:
   key-id: rzp_test_SJC89k7q16xRy1
   key-secret: 0QZ83LXMMfTouiFIGEtXhVJE
-
