@@ -7,8 +7,9 @@ fast2sms:
     key: 2ZGK1btVqFnIuaj06vcUAYTLdzX8rloRSOw3sEepCgkJ9mPQyMnlOpmx6vihwArNtDuL0s8UBRFzfg4c
 
 server:
-  address: 0.0.0.0
+  port: ${PORT:8080}
 
 razorpay:
-  key-id:
-  key-secret:
+  key-id: rzp_test_SJC89k7q16xRy1
+  key-secret: 0QZ83LXMMfTouiFIGEtXhVJE
+

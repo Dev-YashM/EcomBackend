@@ -21,5 +21,4 @@ public class BookingRequest {
     @NotNull
     private Integer price;
 
-    // getters & setters
 }

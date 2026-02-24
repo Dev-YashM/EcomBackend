@@ -20,15 +20,15 @@ public class Cooler {
 
     private List<String> images;
 
-    private String priceTag;   // "Starting At Just ₹599/Month"
+    private String priceTag;
 
-    private String model;      // Semi exhaust
+    private String model;
 
-    private String type;       // Dessert Cooler
+    private String type;
 
-    private String fanSpeeds;  // Low/Medium/High
+    private String fanSpeeds;
 
-    private String waterTank;  // 12L
+    private String waterTank;
 
     private int dailyRent;
 

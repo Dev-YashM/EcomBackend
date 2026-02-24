@@ -15,19 +15,16 @@ public class CoolerController {
 
     private final CoolerService coolerService;
 
-    // GET all coolers
     @GetMapping
     public ResponseEntity<List<Cooler>> getAllCoolers() {
         return ResponseEntity.ok(coolerService.getAllCoolers());
     }
 
-    // GET cooler by id
     @GetMapping("/{id}")
     public ResponseEntity<Cooler> getCoolerById(@PathVariable String id) {
         return ResponseEntity.ok(coolerService.getCoolerById(id));
     }
 
-    // Temporary: Add cooler manually (for testing)
     @PostMapping
     public ResponseEntity<Cooler> addCooler(@RequestBody Cooler cooler) {
         return ResponseEntity.ok(coolerService.saveCooler(cooler));

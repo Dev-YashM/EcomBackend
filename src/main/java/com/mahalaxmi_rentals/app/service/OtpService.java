@@ -28,7 +28,6 @@ public class OtpService {
 
         otpRepository.save(otpVerification);
 
-        // For now print in console
         System.out.println("OTP for " + mobileNumber + " is: " + otp);
     }
 

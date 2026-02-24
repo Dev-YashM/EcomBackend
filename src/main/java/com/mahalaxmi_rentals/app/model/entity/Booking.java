@@ -20,7 +20,7 @@ public class Booking {
     private String rentalDuration;
     private int price;
 
-    private String orderStatus = "PENDING";   // ✅ default value
+    private String orderStatus = "PENDING";
 
     private LocalDateTime bookedAt = LocalDateTime.now();
 
@@ -29,6 +29,5 @@ public class Booking {
     private String razorpaySignature;
 
     private String paymentStatus = "CREATED";
-
-    // getters & setters
+s
 }
