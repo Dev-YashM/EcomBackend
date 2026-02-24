@@ -29,5 +29,4 @@ public class Booking {
     private String razorpaySignature;
 
     private String paymentStatus = "CREATED";
-s
 }
