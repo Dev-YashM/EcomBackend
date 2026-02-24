@@ -1,6 +1,0 @@
-services:
-  - type: web
-    name: ecom-backend
-    runtime: java
-    buildCommand: "./gradlew build"
-    startCommand: "java -jar build/libs/app-0.0.1-SNAPSHOT.jar"
