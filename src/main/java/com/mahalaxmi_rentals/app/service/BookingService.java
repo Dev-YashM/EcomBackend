@@ -28,4 +28,8 @@ public class BookingService {
     public List<Booking> getBookingsByMobile(String mobile) {
         return bookingRepository.findByMobile(mobile);
     }
+
+    public List<Booking> getAllBookings() {
+        return bookingRepository.findAll();
+    }
 }

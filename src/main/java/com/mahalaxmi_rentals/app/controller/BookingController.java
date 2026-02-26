@@ -1,11 +1,14 @@
 package com.mahalaxmi_rentals.app.controller;
 
 import com.mahalaxmi_rentals.app.model.dto.BookingRequest;
+import com.mahalaxmi_rentals.app.model.entity.Booking;
 import com.mahalaxmi_rentals.app.service.BookingService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/bookings")
@@ -24,5 +27,10 @@ public class BookingController {
     @GetMapping("/user/{mobile}")
     public ResponseEntity<?> getUserBookings(@PathVariable String mobile) {
         return ResponseEntity.ok(bookingService.getBookingsByMobile(mobile));
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<Booking>> getAllBookings() {
+        return ResponseEntity.ok(bookingService.getAllBookings());
     }
 }
