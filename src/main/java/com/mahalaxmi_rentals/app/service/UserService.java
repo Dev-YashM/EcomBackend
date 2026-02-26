@@ -7,6 +7,8 @@ import com.mahalaxmi_rentals.app.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor
@@ -65,6 +67,10 @@ public class UserService {
 
     public User findUser(String mobileNumber) {
         return userRepository.findByMobileNumber(mobileNumber).orElse(null);
+    }
+
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
     }
 
 }
