@@ -1,6 +1,7 @@
 package com.mahalaxmi_rentals.app.controller;
 
 import com.mahalaxmi_rentals.app.model.dto.BookingRequest;
+import com.mahalaxmi_rentals.app.model.dto.UpdateStatusRequest;
 import com.mahalaxmi_rentals.app.model.entity.Booking;
 import com.mahalaxmi_rentals.app.service.BookingService;
 import org.springframework.http.ResponseEntity;
@@ -32,5 +33,15 @@ public class BookingController {
     @GetMapping("/all")
     public ResponseEntity<List<Booking>> getAllBookings() {
         return ResponseEntity.ok(bookingService.getAllBookings());
+    }
+
+    @PutMapping("/update-status/{bookingId}")
+    public ResponseEntity<Booking> updateOrderStatus(
+            @PathVariable String bookingId,
+            @RequestBody UpdateStatusRequest request) {
+
+        return ResponseEntity.ok(
+                bookingService.updateOrderStatus(bookingId, request.getOrderStatus())
+        );
     }
 }

@@ -32,4 +32,14 @@ public class BookingService {
     public List<Booking> getAllBookings() {
         return bookingRepository.findAll();
     }
+
+    public Booking updateOrderStatus(String bookingId, String newStatus) {
+
+        Booking booking = bookingRepository.findById(bookingId)
+                .orElseThrow(() -> new RuntimeException("Booking not found"));
+
+        booking.setOrderStatus(newStatus);
+
+        return bookingRepository.save(booking);
+    }
 }
